@@ -635,7 +635,7 @@ def setup_gradio():
 			with gr.Row():
 				exec_inputs = []
 				with gr.Column():
-					EXEC_SETTINGS['listen'] = gr.Textbox(label="Listen", value=args.listen, placeholder="127.0.0.1:7860/")
+					EXEC_SETTINGS['listen'] = gr.Textbox(label="Listen", value=args.listen, placeholder="0.0.0.0:5000/")
 					EXEC_SETTINGS['share'] = gr.Checkbox(label="Public Share Gradio", value=args.share)
 					EXEC_SETTINGS['check_for_updates'] = gr.Checkbox(label="Check For Updates", value=args.check_for_updates)
 					EXEC_SETTINGS['models_from_local_only'] = gr.Checkbox(label="Only Load Models Locally", value=args.models_from_local_only)
