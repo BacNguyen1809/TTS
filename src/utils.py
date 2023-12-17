@@ -3326,7 +3326,7 @@ def setup_args(cli=False):
 		'training-default-halfp': False,
 		'training-default-bnb': True,
 
-		'websocket-listen-address': "127.0.0.1",
+		'websocket-listen-address': "0.0.0.0",
 		'websocket-listen-port': 8069,
 		'websocket-enabled': False
 	}
@@ -3384,7 +3384,7 @@ def setup_args(cli=False):
 	parser.add_argument("--training-default-bnb", action='store_true', default=default_arguments['training-default-bnb'], help="Training default: bnb")
 	
 	parser.add_argument("--websocket-listen-port", type=int, default=default_arguments['websocket-listen-port'], help="Websocket server listen port, default: 8069")
-	parser.add_argument("--websocket-listen-address", default=default_arguments['websocket-listen-address'], help="Websocket server listen address, default: 127.0.0.1")
+	parser.add_argument("--websocket-listen-address", default=default_arguments['websocket-listen-address'], help="Websocket server listen address, default: 0.0.0.0")
 	parser.add_argument("--websocket-enabled", action='store_true', default=default_arguments['websocket-enabled'], help="Websocket API server enabled, default: false")
 
 	if cli:
@@ -3407,7 +3407,7 @@ def setup_args(cli=False):
 		try:
 			match = re.findall(r"^(?:(.+?):(\d+))?(\/.*?)?$", args.listen)[0]
 
-			args.listen_host = match[0] if match[0] != "" else "127.0.0.1"
+			args.listen_host = match[0] if match[0] != "" else "0.0.0.0"
 			args.listen_port = match[1] if match[1] != "" else None
 			args.listen_path = match[2] if match[2] != "" else "/"
 		except Exception as e:
