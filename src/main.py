@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
 	if args.listen_path is not None and args.listen_path != "/":
 		import uvicorn
-		uvicorn.run("main:app", host='0.0.0.0', debug=True, port=5000)
+		uvicorn.run("main:app", host='0.0.0.0', port=5000)
 	else:
 		webui = setup_gradio()
 		webui.launch(share=args.share, prevent_thread_lock=True, show_error=True, server_name=args.listen_host, server_port=args.listen_port)
